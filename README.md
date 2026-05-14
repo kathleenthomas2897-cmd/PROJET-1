@@ -130,3 +130,72 @@ while True:
     update_display()
     
     time.sleep(0.4)
+
+
+
+    {
+  "version": 1,
+  "author": "WeatherStation Pro (Validé Examen)",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 40, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -120, "left": -220, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht2", "top": -120, "left": -100, "attrs": {} },
+    { "type": "wokwi-bmp280", "id": "bmp", "top": -120, "left": 180, "attrs": {} },
+    { "type": "wokwi-ssd1306", "id": "oled", "top": 280, "left": 0, "attrs": {} },
+    { 
+      "type": "wokwi-rgb-led", 
+      "id": "rgb", 
+      "top": -220, 
+      "left": 0, 
+      "attrs": { "common": "cathode" } 
+    },
+    { "type": "wokwi-servo", "id": "servo", "top": 120, "left": 240, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 120, "left": -240, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "btn1", "top": 280, "left": -180, "attrs": { "label": "Nav", "color": "blue" } },
+    { "type": "wokwi-pushbutton", "id": "btn2", "top": 280, "left": 180, "attrs": { "label": "Reset", "color": "red" } },
+    { "type": "wokwi-potentiometer", "id": "mq135_pot", "top": -260, "left": 180, "attrs": { "label": "Simul MQ135" } }
+  ],
+  "connections": [
+    ["pico:GP15", "dht1:DATA", "green"],
+    ["pico:3V3", "dht1:VCC", "red"],
+    ["pico:GND", "dht1:GND", "black"],
+
+    ["pico:GP14", "dht2:DATA", "green"],
+    ["pico:3V3", "dht2:VCC", "red"],
+    ["pico:GND", "dht2:GND", "black"],
+
+    ["pico:GP4", "oled:SDA", "blue"],
+    ["pico:GP5", "oled:SCL", "yellow"],
+    ["pico:3V3", "oled:VCC", "red"],
+    ["pico:GND", "oled:GND", "black"],
+
+    ["pico:GP2", "bmp:SDA", "blue"],
+    ["pico:GP3", "bmp:SCL", "yellow"],
+    ["pico:3V3", "bmp:VCC", "red"],
+    ["pico:GND", "bmp:GND", "black"],
+
+    ["pico:GP10", "rgb:R", "red"],
+    ["pico:GP11", "rgb:G", "green"],
+    ["pico:GP12", "rgb:B", "blue"],
+    ["pico:GND", "rgb:COM", "black"],
+
+    ["pico:GP16", "servo:PWM", "orange"],
+    ["pico:VBUS", "servo:V+", "red"],
+    ["pico:GND", "servo:GND", "black"],
+
+    ["pico:GP17", "buzzer:1", "purple"],
+    ["pico:GND", "buzzer:2", "black"],
+
+    ["pico:GP18", "btn1:1", "white"],
+    
+    ["pico:GND", "btn1:2", "black"],
+
+    ["pico:GP19", "btn2:1", "white"],
+    ["pico:GND", "btn2:2", "black"],
+
+    ["pico:GP26", "mq135_pot:SIG", "green"],
+    ["pico:3V3", "mq135_pot:VCC", "red"],
+    ["pico:GND", "mq135_pot:GND", "black"]
+  ]
+}
