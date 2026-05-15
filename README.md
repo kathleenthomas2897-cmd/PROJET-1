@@ -1,5 +1,10 @@
 # PROJET-1
 WEATHERSTATION PRO 
+WeatherStation Pro simule une station meteo industrielle complete. Elle mesure simultanement la
+temperature (deux zones), l'humidite, la pression atmospherique et la qualite de l'air. Les donnees
+s'affichent sur un ecran OLED, une LED RGB indique l'etat global, un buzzer declenche des alertes
+sonores, et un servomoteur simule une ventilation automatique. Un bouton permet de naviguer entre
+les differents ecrans de donnees.
 import machine
 import time
 import dht
